@@ -19,12 +19,12 @@ public class MovimientosController {
     @Autowired
     private MovimientosService service;
 
-    @GetMapping(value = "/listar",produces = MediaType.TEXT_EVENT_STREAM_VALUE)
+    @GetMapping(value = "/creditos/listar",produces = MediaType.TEXT_EVENT_STREAM_VALUE)
     public Flux<MovimientosDto> getMovimientos(){
         return service.getMovimientos();
     }
 
-    @GetMapping("/{id}")
+    @GetMapping("/creditos/{id}")
     public Mono<MovimientosDto> getMovimiento(@PathVariable String id){
         return service.getMovimiento(id);
     }

@@ -1,6 +1,6 @@
 {
 	"info": {
-		"_postman_id": "f8335673-662e-4456-9e26-9ad524736a6a",
+		"_postman_id": "b4c222b8-ec7b-4217-b9bf-e581495e35a5",
 		"name": "TarjetaCredito",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
@@ -12,7 +12,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n    \"id\": \"619572c5d4e18f4ab90f2795\",\r\n    \"limiteCredito\": 490.0,\r\n    \"fechaapertura\": \"2021-05-20T00:00:00.000+00:00\",\r\n    \"cliente\":{\"id\":\"619bdfecbd5c2f4d25fd415a\"},\r\n    \"fechaPago\": \"2021-06-20T00:00:00.000+00:00\",\r\n    \"firmante\": null\r\n}",
+					"raw": "{\r\n    \"id\": \"61a79a63cc29924a10d5263a\",\r\n    \"limiteCredito\": 4999.0,\r\n    \"fechaapertura\": \"2021-05-20T00:00:00.000+00:00\",\r\n    \"fechaPago\": \"2021-11-30T00:00:00.000+00:00\",\r\n    \"saldo\": 4999.0,\r\n    \"firmante\": \"raul\",\r\n    \"cliente\": {\r\n        \"id\": \"61a6d462f78c28147678d283\"\r\n    }\r\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -20,7 +20,7 @@
 					}
 				},
 				"url": {
-					"raw": "http://localhost:9393/servicios/tarjetasCredito/update/",
+					"raw": "http://localhost:9393/servicios/tarjetasCredito/update/61a79a63cc29924a10d5263a",
 					"protocol": "http",
 					"host": [
 						"localhost"
@@ -30,7 +30,7 @@
 						"servicios",
 						"tarjetasCredito",
 						"update",
-						""
+						"61a79a63cc29924a10d5263a"
 					]
 				}
 			},
@@ -43,7 +43,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n    \"limiteCredito\": 4990.0,\r\n    \"fechaapertura\": \"2021-05-20T00:00:00.000+00:00\",\r\n    \"cliente\":{\"id\":\"619bdfecbd5c2f4d25fd415a\"},\r\n    \"fechaPago\": \"2021-06-20T00:00:00.000+00:00\",\r\n    \"firmante\": null\r\n}",
+					"raw": "{\r\n    \"limiteCredito\": 9000,\r\n    \"fechaapertura\": \"2021-11-30\",\r\n    \"fechaPago\": \"2021-12-30\",\r\n     \"saldo\" : 9000,\r\n     \"$schema\": : \"roxana\",\r\n     \"cliente\":{\"id\":\"61a6ce2cf78c28147678d281\"}\r\n}\r\n\r\n",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -127,7 +127,7 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "http://localhost:9393/servicios/tarjetasCredito/619572c5d4e18f4ab90f2795",
+					"raw": "http://localhost:9393/servicios/tarjetasCredito/61a79a63cc29924a10d5263a",
 					"protocol": "http",
 					"host": [
 						"localhost"
@@ -136,7 +136,7 @@
 					"path": [
 						"servicios",
 						"tarjetasCredito",
-						"619572c5d4e18f4ab90f2795"
+						"61a79a63cc29924a10d5263a"
 					]
 				}
 			},

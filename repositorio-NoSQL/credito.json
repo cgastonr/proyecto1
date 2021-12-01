@@ -1,0 +1,46 @@
+[{
+  "_id": {
+    "$oid": "61a79b05cc29924a10d5263b"
+  },
+  "tipo": "dni",
+  "montoDesembolso": 5000,
+  "fechaapertura": {
+    "$date": "2021-11-30T00:00:00Z"
+  },
+  "cliente": {
+    "_id": {
+      "$oid": "61a6d462f78c28147678d283"
+    }
+  },
+  "_class": "com.proyecto1.servicios.Entidad.Credito"
+},{
+  "_id": {
+    "$oid": "61a79b83cc29924a10d5263c"
+  },
+  "tipo": "ruc",
+  "montoDesembolso": 7000,
+  "fechaapertura": {
+    "$date": "2021-12-01T00:00:00Z"
+  },
+  "cliente": {
+    "_id": {
+      "$oid": "61a6ce2cf78c28147678d281"
+    }
+  },
+  "_class": "com.proyecto1.servicios.Entidad.Credito"
+},{
+  "_id": {
+    "$oid": "61a79c32cc29924a10d5263e"
+  },
+  "tipo": "ruc",
+  "montoDesembolso": 9000,
+  "fechaapertura": {
+    "$date": "2021-11-30T00:00:00Z"
+  },
+  "cliente": {
+    "_id": {
+      "$oid": "61a6ce2cf78c28147678d281"
+    }
+  },
+  "_class": "com.proyecto1.servicios.Entidad.Credito"
+}]

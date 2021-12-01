@@ -1,0 +1,31 @@
+[{
+  "_id": {
+    "$oid": "61a7ca06f227d23c78ac916b"
+  },
+  "idProducto": {
+    "_id": {
+      "$oid": "61a79b05cc29924a10d5263b"
+    }
+  },
+  "monto": 300,
+  "fechaRegistro": {
+    "$date": "2021-11-30T00:00:00Z"
+  },
+  "tipoMov": 1,
+  "_class": "com.proyecto1.movimientos.entity.Movimientos"
+},{
+  "_id": {
+    "$oid": "61a7cb3a16c55930a54db0c0"
+  },
+  "idProducto": {
+    "_id": {
+      "$oid": "61a79b83cc29924a10d5263c"
+    }
+  },
+  "monto": 1500,
+  "fechaRegistro": {
+    "$date": "2021-12-01T00:00:00Z"
+  },
+  "tipoMov": 1,
+  "_class": "com.proyecto1.movimientos.entity.Movimientos"
+}]

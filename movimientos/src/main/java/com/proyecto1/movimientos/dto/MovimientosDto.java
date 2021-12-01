@@ -14,5 +14,5 @@ public class MovimientosDto {
     private ProductoDto idProducto;
     private double monto;
     private Date fechaRegistro;
-    private int tipoMov; //tipo:1(salida) tipo:2(entrada)
+    private Integer tipoMov; //tipo:1(salida) tipo:2(entrada)
 }

@@ -26,12 +26,13 @@ public class ServiciosService {
     private final WebClient webClient;
     private final ReactiveCircuitBreaker reactiveCircuitBreaker;
 
+    //traemos el id del cliente
     String uri = "http://localhost:9292/clientes/{id}";
-
     public ServiciosService(ReactiveResilience4JCircuitBreakerFactory circuitBreakerFactory) {
         this.webClient = WebClient.builder().baseUrl(this.uri).build();
         this.reactiveCircuitBreaker = circuitBreakerFactory.create("cliente");
     }
+    
     @Autowired
     private TarjetaCreditoRepository repositoryTarjetaCredito;
     @Autowired
@@ -41,7 +42,7 @@ public class ServiciosService {
 
     // Conexion con servicio
     public Mono<ClienteDto> findTypeCustomer(String id) {
-        System.out.println("method findTypeCustomer ...");
+     
         return reactiveCircuitBreaker.run(webClient.get().uri(this.uri,id).accept(MediaType.APPLICATION_JSON).retrieve().bodyToMono(ClienteDto.class),
                 throwable -> {
                     return this.getDefaultTypeCustomer();
@@ -49,7 +50,7 @@ public class ServiciosService {
     }
 
     public Mono<ClienteDto> getDefaultTypeCustomer() {
-        System.out.println("method getDefaultTypeCustomer ...");
+     
         Mono<ClienteDto> cliente = Mono.just(new ClienteDto("0"));
         return cliente;
     }
@@ -59,7 +60,7 @@ public class ServiciosService {
         long start = System.currentTimeMillis();
          Flux<TarjetaCreditoDto> tarjetasCreditos =  repositoryTarjetaCredito.findAll().map(AppUtils::entityToDto);
         long end = System.currentTimeMillis();
-        System.out.println("Total execution time : " + (end - start));
+       // System.out.println("Total execution time : " + (end - start));
         return tarjetasCreditos;
     }
 
@@ -68,7 +69,7 @@ public class ServiciosService {
     }
 
     public Mono<TarjetaCredito> saveTarjetaCredito(TarjetaCreditoDto creditoDtoMono){
-        System.out.println("method saveTarjetaCredito ...");
+       
         TarjetaCredito tarjetaCredito = AppUtils.dtoToEntity(creditoDtoMono);
         return  repositoryTarjetaCredito.save(tarjetaCredito);
     }

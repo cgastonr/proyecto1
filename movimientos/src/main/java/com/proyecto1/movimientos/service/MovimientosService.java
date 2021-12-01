@@ -33,7 +33,7 @@ public class MovimientosService {
 
     // Conexion con servicio
     public Mono<ProductoDto> findIdCreditos(String id) {
-        System.out.println("method findTypeCustomer ...");
+       
         return reactiveCircuitBreaker.run(webClient.get().uri(this.uriCreditos,id).accept(MediaType.APPLICATION_JSON).retrieve().bodyToMono(ProductoDto.class),
                 throwable -> {
                     return this.getDefaultCreditos();
@@ -41,13 +41,13 @@ public class MovimientosService {
     }
 
     public Mono<ProductoDto> getDefaultCreditos() {
-        System.out.println("method getDefaultTypeCustomer ...");
+      
         Mono<ProductoDto> dtoMono = Mono.just(new ProductoDto("0"));
         return dtoMono;
     }
 
     public Mono<ProductoDto> findIdTarjetasCreditos(String id) {
-        System.out.println("method findTypeCustomer ...");
+       
         return reactiveCircuitBreaker.run(webClient.get().uri(this.uriTarjetasCredito,id).accept(MediaType.APPLICATION_JSON).retrieve().bodyToMono(ProductoDto.class),
                 throwable -> {
                     return this.getDefaultCreditos();
@@ -55,12 +55,12 @@ public class MovimientosService {
     }
 
     public Mono<ProductoDto> getDefaultTarjetasCreditos() {
-        System.out.println("method getDefaultTypeCustomer ...");
+     
         Mono<ProductoDto> dtoMono = Mono.just(new ProductoDto("0"));
         return dtoMono;
     }
     public Mono<ProductoDto> findIdCuentaBancaria(String id) {
-        System.out.println("method findTypeCustomer ...");
+
         return reactiveCircuitBreaker.run(webClient.get().uri(this.uriCuentaBancaria,id).accept(MediaType.APPLICATION_JSON).retrieve().bodyToMono(ProductoDto.class),
                 throwable -> {
                     return this.getDefaultCreditos();
@@ -68,7 +68,7 @@ public class MovimientosService {
     }
 
     public Mono<ProductoDto> getDefaultCuentaBancaria() {
-        System.out.println("method getDefaultTypeCustomer ...");
+       
         Mono<ProductoDto> dtoMono = Mono.just(new ProductoDto("0"));
         return dtoMono;
     }
@@ -76,7 +76,7 @@ public class MovimientosService {
     // Conexion con servicio
 
     public Flux<MovimientosDto> getMovimientos(){
-        System.out.println("service method called ...");
+      
         long start = System.currentTimeMillis();
         Flux<MovimientosDto> movimientos =  repository.findAll().map(AppUtils::entityToDto);
         long end = System.currentTimeMillis();
@@ -89,13 +89,13 @@ public class MovimientosService {
     }
 
     public Mono<Movimientos> saveMovimiento(MovimientosDto movimientosDtoMono){
-        System.out.println("service method called ...");
+       
         Movimientos movimientos = AppUtils.dtoToEntity(movimientosDtoMono);
         return  repository.save(movimientos);
     }
 
     public Mono<Movimientos> updateMovimiento(MovimientosDto movimientosDtoMono){
-        System.out.println("service method called ...");
+
         Movimientos movimientos = AppUtils.dtoToEntity(movimientosDtoMono);
 
         return repository.findById(movimientos.getId()).flatMap(custDB -> {
@@ -104,7 +104,7 @@ public class MovimientosService {
     }
 
     public Mono<Void> deleteMovimiento(String id){
-        System.out.println("service method called ...");
+      
         return repository.deleteById(id);
     }
 

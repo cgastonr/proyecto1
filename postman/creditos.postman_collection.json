@@ -1,18 +1,18 @@
 {
 	"info": {
-		"_postman_id": "35a1e759-4137-4374-989f-61505ccfb807",
+		"_postman_id": "3594d65f-9da6-4ccd-acda-120e158d2cfe",
 		"name": "creditos",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
 	"item": [
 		{
-			"name": "http://localhost:9393/servicios/creditos/update/",
+			"name": "http://localhost:9393/servicios/creditos/update/61a79b05cc29924a10d5263b",
 			"request": {
 				"method": "PUT",
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "   {\r\n       \"id\": \"619c5c6e4de02875899da009\",\r\n        \"tipo\":\"dni\",\r\n        \"montoDesembolso\":\"7780\",\r\n        \"fechaapertura\":\"2021-11-21\",\r\n        \"celular\":\"activo\",\r\n        \"cliente\":{\r\n            \"id\":\"619bea82bd5c2f4d25fd415b\"\r\n        }\r\n\r\n  }",
+					"raw": "    {\r\n        \"id\": \"61a79b05cc29924a10d5263b\",\r\n        \"tipo\": \"dni\",\r\n        \"montoDesembolso\": 5000,\r\n        \"fechaapertura\": \"2021-11-30\",\r\n        \"cliente\": {\r\n            \"id\": \"61a6d462f78c28147678d283\"\r\n        }\r\n    }",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -20,7 +20,7 @@
 					}
 				},
 				"url": {
-					"raw": "http://localhost:9393/servicios/creditos/update/",
+					"raw": "http://localhost:9393/servicios/creditos/update/61a79b05cc29924a10d5263b",
 					"protocol": "http",
 					"host": [
 						"localhost"
@@ -30,19 +30,19 @@
 						"servicios",
 						"creditos",
 						"update",
-						""
+						"61a79b05cc29924a10d5263b"
 					]
 				}
 			},
 			"response": []
 		},
 		{
-			"name": "http://localhost:9393/servicios/creditos/delete/619c070551af1b4d0b2b9b54",
+			"name": "http://localhost:9393/servicios/creditos/delete/61a79c32cc29924a10d5263e",
 			"request": {
 				"method": "DELETE",
 				"header": [],
 				"url": {
-					"raw": "http://localhost:9393/servicios/creditos/delete/619c070551af1b4d0b2b9b54",
+					"raw": "http://localhost:9393/servicios/creditos/delete/61a79c32cc29924a10d5263e",
 					"protocol": "http",
 					"host": [
 						"localhost"
@@ -52,19 +52,19 @@
 						"servicios",
 						"creditos",
 						"delete",
-						"619c070551af1b4d0b2b9b54"
+						"61a79c32cc29924a10d5263e"
 					]
 				}
 			},
 			"response": []
 		},
 		{
-			"name": "http://localhost:9393/servicios/creditos/61967a2aed07633f6985771c",
+			"name": "http://localhost:9393/servicios/creditos/61a79c32cc29924a10d5263e",
 			"request": {
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "http://localhost:9393/servicios/creditos/61967a2aed07633f6985771c",
+					"raw": "http://localhost:9393/servicios/creditos/61a79c32cc29924a10d5263e",
 					"protocol": "http",
 					"host": [
 						"localhost"
@@ -73,7 +73,7 @@
 					"path": [
 						"servicios",
 						"creditos",
-						"61967a2aed07633f6985771c"
+						"61a79c32cc29924a10d5263e"
 					]
 				}
 			},
@@ -86,7 +86,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "   {\r\n       \r\n        \"tipo\":\"dni\",\r\n        \"montoDesembolso\":\"750\",\r\n        \"fechaapertura\":\"2021-11-21\",\r\n        \"idCliente\":\"10\",\r\n        \"celular\":\"activo\",\r\n        \"tipoCliente\":\"personal\",\r\n        \"cliente\":{\r\n            \"id\":\"619bea82bd5c2f4d25fd415b\"\r\n        }\r\n\r\n  }\r\n\r\n  ",
+					"raw": "   {\r\n       \r\n        \"tipo\":\"ruc\",\r\n        \"montoDesembolso\":\"9000\",\r\n        \"fechaapertura\":\"2021-11-30\",\r\n        \"estado\":\"activo\",\r\n        \"cliente\":{\r\n            \"id\":\"61a6ce2cf78c28147678d281\"\r\n        }\r\n\r\n  }\r\n\r\n  ",
 					"options": {
 						"raw": {
 							"language": "json"

@@ -34,15 +34,16 @@ public class ServicioController {
 
     @PostMapping("/tarjetasCredito/create")
     public Mono<ResponseEntity<TarjetaCredito>> saveTarjetaCredito(@RequestBody TarjetaCreditoDto productDtoMono){
-        System.out.println("controller method called ...");
+     
         return service.findTypeCustomer(productDtoMono.getCliente().getId()).flatMap(client->{
-            productDtoMono.setCliente(client);
+           
+        	productDtoMono.setCliente(client);
             return service.saveTarjetaCredito(productDtoMono)
                     .map(savedCustomer -> new ResponseEntity<>(savedCustomer , HttpStatus.CREATED));
         }).defaultIfEmpty(new ResponseEntity<>(HttpStatus.BAD_REQUEST));
     }
 
-    @PutMapping("/tarjetasCredito/update/")
+    @PutMapping("/tarjetasCredito/update/{id}")
     public Mono<ResponseEntity<TarjetaCredito>> updateTarjetaCredito(@RequestBody TarjetaCreditoDto productDtoMono){
         return service.findTypeCustomer(productDtoMono.getCliente().getId()).flatMap(client->{
             productDtoMono.setCliente(client);
@@ -83,9 +84,9 @@ public class ServicioController {
 
 
 
-    @PutMapping("/creditos/update/")
+    @PutMapping("/creditos/update/{id}")
     public Mono<ResponseEntity<Credito>> updateCredito(@RequestBody CreditoDto productDtoMono){
-        System.out.println("controller method called ...");
+      
         return service.findTypeCustomer(productDtoMono.getCliente().getId()).flatMap(client->{
             productDtoMono.setCliente(client);
             return service.updateCredito(productDtoMono)
@@ -126,7 +127,7 @@ public class ServicioController {
 
 
 
-    @PutMapping("/cuentasBancarias/update/")
+    @PutMapping("/cuentasBancarias/update/{id}")
     public Mono<ResponseEntity<CuentaBancaria>> updateCuentasBancaria(@RequestBody CuentaBancariaDto productDtoMono){
         System.out.println("controller method called ...");
         return service.findTypeCustomer(productDtoMono.getCliente().getId()).flatMap(client->{

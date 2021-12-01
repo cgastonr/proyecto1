@@ -18,8 +18,8 @@ public class TarjetaCredito {
     private String id;
     private double limiteCredito;
     private Date fechaapertura;
-    private ClienteDto cliente;
     private Date fechaPago;
+    private double saldo;
     private String firmante;//dni de cliente adicional
-
+    private ClienteDto cliente;
 }

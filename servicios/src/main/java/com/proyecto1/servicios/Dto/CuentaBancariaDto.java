@@ -12,9 +12,10 @@ import java.util.Date;
 @NoArgsConstructor
 public class CuentaBancariaDto {
     private String id;
-    private String tipo;
+    private String tipo;//ahorro,cuentacorriente, plazo fijo
     private double saldo;
     private double mantenimiento;
+    private Integer lim_max_mov_mes;
     private long estado;
     private Date fechaApertura;
     private ClienteDto cliente;

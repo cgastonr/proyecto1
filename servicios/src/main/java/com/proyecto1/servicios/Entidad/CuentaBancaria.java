@@ -19,6 +19,7 @@ public class CuentaBancaria {
     private String tipo;
     private double saldo;
     private double mantenimiento;
+    private Integer lim_max_mov_mes;
     private long estado;
     private Date fechaApertura;
     private ClienteDto cliente;
