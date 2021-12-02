@@ -1,7 +1,7 @@
 {
 	"info": {
 		"_postman_id": "a5d83856-a77d-47b7-9ca1-9e8c69c398f2",
-		"name": "Movimientos",
+		"name": "Movimientos credito",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
 	"item": [
@@ -12,7 +12,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": " {\r\n    \"id\": \"61a7ca06f227d23c78ac916b\",\r\n    \"idProducto\": {\r\n        \"id\": \"61a79b05cc29924a10d5263b\"\r\n    },\r\n    \"monto\": 300.0,\r\n    \"fechaRegistro\": \"2021-11-30T00:00:00.000+00:00\",\r\n    \"tipoMov\": 1\r\n}",
+					"raw": "{\r\n    \"id\": \"61a7ca06f227d23c78ac916b\",\r\n    \"idProducto\": {\r\n        \"id\": \"61a79b05cc29924a10d5263b\"\r\n    },\r\n    \"monto\": 700.0,\r\n    \"fechaRegistro\": \"2021-11-30T00:00:00.000+00:00\",\r\n    \"tipoMov\": 1\r\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -122,12 +122,12 @@
 			"response": []
 		},
 		{
-			"name": "http://localhost:9191/movimientos/creditos/delete/61a7ca06f227d23c78ac916b",
+			"name": "http://localhost:9191/movimientos/creditos/61a7ca06f227d23c78ac916b",
 			"request": {
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "http://localhost:9191/movimientos/creditos/delete/61a7ca06f227d23c78ac916b",
+					"raw": "http://localhost:9191/movimientos/creditos/61a7ca06f227d23c78ac916b",
 					"protocol": "http",
 					"host": [
 						"localhost"
@@ -136,7 +136,6 @@
 					"path": [
 						"movimientos",
 						"creditos",
-						"delete",
 						"61a7ca06f227d23c78ac916b"
 					]
 				}

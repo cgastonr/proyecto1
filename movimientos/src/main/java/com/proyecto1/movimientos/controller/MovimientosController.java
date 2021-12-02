@@ -18,79 +18,128 @@ public class MovimientosController {
 
     @Autowired
     private MovimientosService service;
-
+    
+    
+    /*Creditos crud inicio */
     @GetMapping(value = "/creditos/listar",produces = MediaType.TEXT_EVENT_STREAM_VALUE)
-    public Flux<MovimientosDto> getMovimientos(){
-        return service.getMovimientos();
+    public Flux<MovimientosDto> getMovimientosCredito(){
+        return service.getMovimientoscreditos();
     }
 
     @GetMapping("/creditos/{id}")
-    public Mono<MovimientosDto> getMovimiento(@PathVariable String id){
-        return service.getMovimiento(id);
+    public Mono<MovimientosDto> getMovimientoCredito(@PathVariable String id){
+        return service.getMovimientocredito(id);
     }
 
     @PostMapping("/creditos/create")
     public Mono<ResponseEntity<Movimientos>> saveMovimientoCredito(@RequestBody MovimientosDto movimientosDtoMono){
-        System.out.println("controller method called ...");
+      
+    	
         return service.findIdCreditos(movimientosDtoMono.getIdProducto().getId()).flatMap(product->{
             movimientosDtoMono.setIdProducto(product);
-            return service.saveMovimiento(movimientosDtoMono)
+            return service.saveMovimientoCredito(movimientosDtoMono)
                     .map(savedCustomer -> new ResponseEntity<>(savedCustomer , HttpStatus.CREATED));
         }).defaultIfEmpty(new ResponseEntity<>(HttpStatus.BAD_REQUEST));
     }
 
 
-    @PutMapping("/creditos/update/")
+    @PutMapping("/creditos/update/{id}")
     public Mono<ResponseEntity<Movimientos>> updateMovimientoCredito(@RequestBody MovimientosDto movimientosDtoMono){
         return service.findIdCreditos(movimientosDtoMono.getIdProducto().getId()).flatMap(client->{
             movimientosDtoMono.setIdProducto(client);
-            return service.updateMovimiento(movimientosDtoMono)
+            return service.updateMovimientoCredito(movimientosDtoMono)
                     .map(savedCustomer -> new ResponseEntity<>(savedCustomer , HttpStatus.CREATED));
         }).defaultIfEmpty(new ResponseEntity<>(HttpStatus.BAD_REQUEST));
     }
-    @PostMapping("/cuentasBancarias/create")
-    public Mono<ResponseEntity<Movimientos>> saveMovimientoCuentasBancarias(@RequestBody MovimientosDto movimientosDtoMono){
-        System.out.println("controller method called ...");
-        return service.findIdCuentaBancaria(movimientosDtoMono.getIdProducto().getId()).flatMap(product->{
-            movimientosDtoMono.setIdProducto(product);
-            return service.saveMovimiento(movimientosDtoMono)
-                    .map(savedCustomer -> new ResponseEntity<>(savedCustomer , HttpStatus.CREATED));
-        }).defaultIfEmpty(new ResponseEntity<>(HttpStatus.BAD_REQUEST));
+    
+    @DeleteMapping("/credito/delete/{id}")
+    public Mono<Void> deleteMovimiento(@PathVariable String id){
+        return service.deleteMovimientoCredito(id);
+    }
+    /*Creditos crud fin */
+    
+  
+    
+    /*Creditos crud inicio */
+    @GetMapping(value = "/tarjetasCredito/listar",produces = MediaType.TEXT_EVENT_STREAM_VALUE)
+    public Flux<MovimientosDto> getMovimientosTarjetasCredito(){
+        return service.getMovimientoscreditos();
     }
 
-
-    @PutMapping("/cuentasBancarias/update/")
-    public Mono<ResponseEntity<Movimientos>> updateMovimientoCuentasBancarias(@RequestBody MovimientosDto movimientosDtoMono){
-        return service.findIdCuentaBancaria(movimientosDtoMono.getIdProducto().getId()).flatMap(client->{
-            movimientosDtoMono.setIdProducto(client);
-            return service.updateMovimiento(movimientosDtoMono)
-                    .map(savedCustomer -> new ResponseEntity<>(savedCustomer , HttpStatus.CREATED));
-        }).defaultIfEmpty(new ResponseEntity<>(HttpStatus.BAD_REQUEST));
+    @GetMapping("/tarjetasCredito/{id}")
+    public Mono<MovimientosDto> getMovimientoTrajetaCredito(@PathVariable String id){
+        return service.getMovimientoTarjetacredito(id);
     }
+    
     @PostMapping("/tarjetasCredito/create")
     public Mono<ResponseEntity<Movimientos>> saveMovimientoTarjetasCredito(@RequestBody MovimientosDto movimientosDtoMono){
-        System.out.println("controller method called ...");
+       
         return service.findIdTarjetasCreditos(movimientosDtoMono.getIdProducto().getId()).flatMap(product->{
             movimientosDtoMono.setIdProducto(product);
-            return service.saveMovimiento(movimientosDtoMono)
+            
+            return service.saveMovimientoTarjetascreditos(movimientosDtoMono)
                     .map(savedCustomer -> new ResponseEntity<>(savedCustomer , HttpStatus.CREATED));
         }).defaultIfEmpty(new ResponseEntity<>(HttpStatus.BAD_REQUEST));
     }
 
+    
+    
 
-    @PutMapping("/tarjetasCredito/update/")
+    @PutMapping("/tarjetasCredito/update/{id}")
     public Mono<ResponseEntity<Movimientos>> updateMovimientoTarjetasCredito(@RequestBody MovimientosDto movimientosDtoMono){
         return service.findIdTarjetasCreditos(movimientosDtoMono.getIdProducto().getId()).flatMap(client->{
             movimientosDtoMono.setIdProducto(client);
-            return service.updateMovimiento(movimientosDtoMono)
+            return service.updateMovimientoTarjetascreditos(movimientosDtoMono)
                     .map(savedCustomer -> new ResponseEntity<>(savedCustomer , HttpStatus.CREATED));
         }).defaultIfEmpty(new ResponseEntity<>(HttpStatus.BAD_REQUEST));
     }
 
-    @DeleteMapping("/delete/{id}")
-    public Mono<Void> deleteMovimiento(@PathVariable String id){
-        return service.deleteMovimiento(id);
+    @DeleteMapping("/tarjetacredito/delete/{id}")
+    public Mono<Void> deleteMovimientoTarjetaCredito(@PathVariable String id){
+        return service.deleteMovimientoTarjetascreditos(id);
+    }
+    /*Creditos crud fin*/
+
+    
+    
+    /*cuenta bancaria*/
+    
+    @GetMapping(value = "/cuentabancaria/listar",produces = MediaType.TEXT_EVENT_STREAM_VALUE)
+    public Flux<MovimientosDto> getMovimientosCuentaBancaria(){
+        return service.getMovimientosCuentasBancarias();
     }
 
+    @GetMapping("/cuentabancaria/{id}")
+    public Mono<MovimientosDto> getMovimientoCuentaBancaria(@PathVariable String id){
+        return service.getMovimientoCuentaBancaria(id);
+    }
+    
+    @PostMapping("/cuentabancaria/create")
+    public Mono<ResponseEntity<Movimientos>> saveMovimientoCuentaBancaria(@RequestBody MovimientosDto movimientosDtoMono){
+       
+        return service.findIdCuentaBancaria(movimientosDtoMono.getIdProducto().getId()).flatMap(product->{
+            movimientosDtoMono.setIdProducto(product);
+            
+            return service.saveMovimientoCuentaBancaria(movimientosDtoMono)
+                    .map(savedCustomer -> new ResponseEntity<>(savedCustomer , HttpStatus.CREATED));
+        }).defaultIfEmpty(new ResponseEntity<>(HttpStatus.BAD_REQUEST));
+    }
+
+    
+    
+
+    @PutMapping("/cuentabancaria/update/{id}")
+    public Mono<ResponseEntity<Movimientos>> updateMovimientoCuentaBancaria(@RequestBody MovimientosDto movimientosDtoMono){
+        return service.findIdCuentaBancaria(movimientosDtoMono.getIdProducto().getId()).flatMap(client->{
+            movimientosDtoMono.setIdProducto(client);
+            return service.updateMovimientoCuentaBancaria(movimientosDtoMono)
+                    .map(savedCustomer -> new ResponseEntity<>(savedCustomer , HttpStatus.CREATED));
+        }).defaultIfEmpty(new ResponseEntity<>(HttpStatus.BAD_REQUEST));
+    }
+
+    @DeleteMapping("/cuentabancaria/delete/{id}")
+    public Mono<Void> deleteMovimientoCuentaBancaria(@PathVariable String id){
+        return service.deleteMovimientoCuentaBancaria(id);
+    }
 
 }

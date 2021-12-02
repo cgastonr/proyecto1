@@ -99,7 +99,7 @@ public class ServiciosService {
     }
 
     public Mono<Credito> saveCredito(CreditoDto creditoDtoMono){
-        System.out.println("service method called ...");
+       
         Credito credito = AppUtils.dtoToEntity(creditoDtoMono);
 
         return  repositoryCredito.save(credito);
@@ -108,7 +108,7 @@ public class ServiciosService {
 
     public Mono<Credito> updateCredito(CreditoDto creditoDtoMono){
 
-        System.out.println("method updateCredito ...");
+      
         Credito credito = AppUtils.dtoToEntity(creditoDtoMono);
 
         return repositoryCredito.findById(credito.getId()).flatMap(custDB -> {
@@ -131,14 +131,23 @@ public class ServiciosService {
     }
 
     public Mono<CuentaBancaria> saveCuentasBancaria(CuentaBancariaDto cuentaBancariaDtoMono){
-        System.out.println("service method called ...");
+        //validar si el cliente solo debe teenr  1 de cada 1 (ahorro plazo ,corriente)
+    	  //61a7a34af78c28147678d284 id de sofia
+    	  //61a6d462f78c28147678d283 id de raul 3(ahorro plazo ,corriente)
         CuentaBancaria cuentaBancaria = AppUtils.dtoToEntity(cuentaBancariaDtoMono);
-
+        
+        //System.out.println("dato:  "+cuentaBancaria.getCliente().getId());
+       // System.out.println("dato : "+cuentaBancaria.getTipo());
+        
+         //Flux<CuentaBancariaDto> datos =repositoryCuentaBancaria.findAll().map(AppUtils::entityToDto);
+        
+       // System.out.println("listado : "+repositoryCuentaBancaria.findAll() );
+       
         return  repositoryCuentaBancaria.save(cuentaBancaria);
     }
 
     public Mono<CuentaBancaria> updateCuentasBancaria(CuentaBancariaDto cuentaBancariaDtoMono){
-        System.out.println("method updateCredito ...");
+       
         CuentaBancaria cuentaBancaria = AppUtils.dtoToEntity(cuentaBancariaDtoMono);
 
         return repositoryCuentaBancaria.findById(cuentaBancaria.getId()).flatMap(custDB -> {

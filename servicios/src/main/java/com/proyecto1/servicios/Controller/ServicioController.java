@@ -8,6 +8,9 @@ import com.proyecto1.servicios.Entidad.CuentaBancaria;
 import com.proyecto1.servicios.Entidad.TarjetaCredito;
 import com.proyecto1.servicios.Service.ServiciosService;
 import com.proyecto1.servicios.Utils.AppUtils;
+
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
@@ -19,10 +22,13 @@ import reactor.core.publisher.Mono;
 @RestController
 @RequestMapping("/servicios")
 public class ServicioController {
+	
+	//llamamos al servicio
     @Autowired
     private ServiciosService service;
-
-        @GetMapping(value = "/tarjetasCredito/listar",produces = MediaType.TEXT_EVENT_STREAM_VALUE)
+    
+    
+    @GetMapping(value = "/tarjetasCredito/listar",produces = MediaType.TEXT_EVENT_STREAM_VALUE)
     public Flux<TarjetaCreditoDto> getTarjetaCreditos(){
         return service.getTarjetaCreditos();
     }
@@ -116,12 +122,20 @@ public class ServicioController {
 
     @PostMapping("/cuentasBancarias/create")
     public Mono<ResponseEntity<CuentaBancaria>> saveCuentasBancaria(@RequestBody CuentaBancariaDto productDtoMono){
-        System.out.println("controller method called ...");
+       
         return service.findTypeCustomer(productDtoMono.getCliente().getId()).flatMap(client->{
             productDtoMono.setCliente(client);
+            
+            System.out.println("dato:  "+productDtoMono.getCliente().getId());
+            System.out.println("dato:  "+productDtoMono.getTipo());
+          
+            //System.out.println("listados:  "+service.getCuentasBancarias().collectList().subscribe());
+          //  List<CuentaBancariaDto> dbObjects = ListObjectsBD();
             return service.saveCuentasBancaria(productDtoMono)
                     .map(savedCustomer -> new ResponseEntity<>(savedCustomer , HttpStatus.CREATED));
         }).defaultIfEmpty(new ResponseEntity<>(HttpStatus.BAD_REQUEST));
+        
+        
         //return service.saveCredito(productDtoMono);
     }
 
